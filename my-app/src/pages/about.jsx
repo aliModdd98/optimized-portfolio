@@ -7,13 +7,12 @@ import Logo from "../components/common/logo";
 import Socials from "../components/about/socials";
 import INFO from "../data/user";
 import SEO from "../data/seo";
-
+import LightSpeed from 'react-reveal/LightSpeed';
 import "./styles/about.css";
+import useScrollToTop from "../Hooks/useScrollToTop";
 
 const About = () => {
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
+	useScrollToTop();
 
 	const currentSEO = SEO.find((item) => item.page === "about");
 
@@ -27,8 +26,7 @@ const About = () => {
 					content={currentSEO.keywords.join(", ")}
 				/>
 			</Helmet>
-
-			<div className="page-content">
+		<LightSpeed top><div className="page-content">
 				<NavBar active="about" />
 				<div className="content-wrapper">
 					<div className="about-logo-container">
@@ -73,7 +71,8 @@ const About = () => {
 						<Footer />
 					</div>
 				</div>
-			</div>
+			</div></LightSpeed>
+			
 		</React.Fragment>
 	);
 };

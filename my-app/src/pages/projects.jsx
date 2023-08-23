@@ -5,16 +5,15 @@ import NavBar from "../components/common/navBar";
 import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
 import AllProjects from "../components/projects/allProjects";
-
+import Bounce from 'react-reveal/Bounce';
 import INFO from "../data/user";
 import SEO from "../data/seo";
 
 import "./styles/projects.css";
+import useScrollToTop from "../Hooks/useScrollToTop";
 
 const Projects = () => {
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
+useScrollToTop();
 
 	const currentSEO = SEO.find((item) => item.page === "projects");
 
@@ -28,7 +27,7 @@ const Projects = () => {
 					content={currentSEO.keywords.join(", ")}
 				/>
 			</Helmet>
-
+			<Bounce right>
 			<div className="page-content">
 				<NavBar active="projects" />
 				<div className="content-wrapper">
@@ -65,6 +64,8 @@ const Projects = () => {
 					</div>
 				</div>
 			</div>
+			</Bounce>
+			
 		</React.Fragment>
 	);
 };

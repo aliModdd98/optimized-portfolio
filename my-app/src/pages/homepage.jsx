@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
+import Fade from 'react-reveal/Fade';
 
 import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,39 +23,14 @@ import SEO from "../data/seo";
 import myArticles from "../data/articles";
 import home from './../assets/homepage.jpg';
 import "./styles/homepage.css";
-
+import useScrollToTop from "./../Hooks/useScrollToTop.jsx";
+import useScrollEffect from './../Hooks/handleScroll.jsx'
 const Homepage = () => {
 	const [stayLogo, setStayLogo] = useState(false);
-	const [logoSize, setLogoSize] = useState(80);
-	const [oldLogoSize, setOldLogoSize] = useState(80);
+  const [initialLogoSize, setInitialLogoSize] = useState(80);
 
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
-
-	useEffect(() => {
-		const handleScroll = () => {
-			let scroll = Math.round(window.pageYOffset, 2);
-
-			let newLogoSize = 80 - (scroll * 4) / 10;
-
-			if (newLogoSize < oldLogoSize) {
-				if (newLogoSize > 40) {
-					setLogoSize(newLogoSize);
-					setOldLogoSize(newLogoSize);
-					setStayLogo(false);
-				} else {
-					setStayLogo(true);
-				}
-			} else {
-				setLogoSize(newLogoSize);
-				setStayLogo(false);
-			}
-		};
-
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, [logoSize, oldLogoSize]);
+  useScrollToTop();
+  const { logoSize, stayLogo: scrollStayLogo } = useScrollEffect();
 
 	const currentSEO = SEO.find((item) => item.page === "home");
 
@@ -78,7 +54,7 @@ const Homepage = () => {
 					content={currentSEO.keywords.join(", ")}
 				/>
 			</Helmet>
-
+      
 			<div className="page-content">
 				<NavBar active="home" />
 				<div className="content-wrapper">
@@ -87,8 +63,8 @@ const Homepage = () => {
 							<Logo width={logoSize} link={false} />
 						</div>
 					</div>
-
-					<div className="homepage-container">
+				  <Fade left>
+				  <div className="homepage-container">
 						<div className="homepage-first-area">
 							<div className="homepage-first-area-left-side">
 								<div className="title homepage-title">
@@ -99,7 +75,7 @@ const Homepage = () => {
 									{INFO.homepage.description}
 								</div>
 							</div>
-
+							
 							<div className="homepage-first-area-right-side">
 								<div className="homepage-image-container">
 									<div className="homepage-image-wrapper">
@@ -111,6 +87,8 @@ const Homepage = () => {
 									</div>
 								</div>
 							</div>
+							
+							
 						</div>
 
 						<div className="homepage-socials">
@@ -196,9 +174,12 @@ const Homepage = () => {
 						<div className="page-footer">
 							<Footer />
 						</div>
-					</div>
+					</div></Fade>   
+					
+					
 				</div>
 			</div>
+		
 		</React.Fragment>
 	);
 };

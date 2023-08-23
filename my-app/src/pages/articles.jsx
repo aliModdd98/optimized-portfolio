@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
-
+import Roll from 'react-reveal/Roll';
 import NavBar from "../components/common/navBar";
 import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
@@ -11,11 +11,10 @@ import SEO from "../data/seo";
 import myArticles from "../data/articles";
 
 import "./styles/articles.css";
+import useScrollToTop from "../Hooks/useScrollToTop";
 
 const Articles = () => {
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
+useScrollToTop();
 
 	const currentSEO = SEO.find((item) => item.page === "articles");
 
@@ -29,7 +28,7 @@ const Articles = () => {
 					content={currentSEO.keywords.join(", ")}
 				/>
 			</Helmet>
-
+			<Roll top> 
 			<div className="page-content">
 				<NavBar active="articles" />
 				<div className="content-wrapper">
@@ -71,7 +70,8 @@ const Articles = () => {
 						<Footer />
 					</div>
 				</div>
-			</div>
+			</div></Roll>
+			
 		</React.Fragment>
 	);
 };

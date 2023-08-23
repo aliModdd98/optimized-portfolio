@@ -5,16 +5,15 @@ import NavBar from "../components/common/navBar";
 import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
 import Socials from "../components/about/socials";
-
+import Flip from 'react-reveal/Flip';
 import INFO from "../data/user";
 import SEO from "../data/seo";
 
 import "./styles/contact.css";
+import useScrollToTop from "../Hooks/useScrollToTop";
 
 const Contact = () => {
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
+useScrollToTop();
 
 	const currentSEO = SEO.find((item) => item.page === "contact");
 
@@ -28,8 +27,7 @@ const Contact = () => {
 					content={currentSEO.keywords.join(", ")}
 				/>
 			</Helmet>
-
-			<div className="page-content">
+			<Flip bottom><div className="page-content">
 				<NavBar active="contact" />
 				<div className="content-wrapper">
 					<div className="contact-logo-container">
@@ -83,7 +81,8 @@ const Contact = () => {
 						<Footer />
 					</div>
 				</div>
-			</div>
+			</div></Flip>
+			
 		</React.Fragment>
 	);
 };

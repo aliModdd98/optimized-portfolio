@@ -21,7 +21,7 @@ const Works = () => {
 							/>
 							<div className="work-title">Facebook</div>
 							<div className="work-subtitle">
-								Full Stack Web Developer
+								Front-end developer
 							</div>
 							<div className="work-duration">2019 - Present</div>
 						</div>
