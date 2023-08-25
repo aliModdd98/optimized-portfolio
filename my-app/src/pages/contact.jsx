@@ -1,6 +1,13 @@
 import React, { useEffect } from "react";
 import { Helmet } from 'react-helmet';
-
+import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	faTwitter,
+	faGithub,
+	faStackOverflow,
+	faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 import NavBar from "../components/common/navBar";
 import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
@@ -32,48 +39,95 @@ useScrollToTop();
 				<div className="content-wrapper">
 					<div className="contact-logo-container">
 						<div className="contact-logo">
-							<Logo width={46} />
+							{/* <Logo width={46} /> */}
 						</div>
 					</div>
 
-					<div className="contact-container">
-						<div className="title contact-title">
-							Let's Get in Touch: Ways to Connect with Me
-						</div>
+    <section id="contact-main">
+      <div className="container">
+        <div className="heading-wrapper">
+          <div className="heading">
+            <p className="title">
+              Want to
+              contact me ?
+            </p>
+            <p className="separator" />
+            <p className="subtitle">
+              Please, use the form below or send an email to {''}
+              <span className="mail">
+             aloshy1998m@gmail.com
+              </span>
+              :
+            </p>
+          </div>
+      
+        </div>
+        <form id="contact-form" action="#">
+          <input placeholder="Name" name="name" type="text" required />
+          <input placeholder="Email" name="email" type="email" required />
+          <textarea placeholder="Message" type="text" name="message" />
+          <input className="button" id="submit" value="Submit" type="submit" />
+        </form>
+      </div>
+    </section>
 
-						<div className="subtitle contact-subtitle">
-							Thank you for your interest in getting in touch with
-							me. I welcome your feedback, questions, and
-							suggestions. If you have a specific question or
-							comment, please feel free to email me directly at
-							&nbsp;{" "}
-							<a href={`mailto:${INFO.main.email}`}>
-								{INFO.main.email}
+
+					<div className="socials-container">
+						<div className="contact-socials">
+						
+						<div className="homepage-socials">
+							<a
+								href={INFO.socials.twitter}
+								target="_blank"
+								rel="noreferrer"
+							>
+								<FontAwesomeIcon
+									icon={faTwitter}
+									className="homepage-social-icon"
+								/>
 							</a>
-							. I make an effort to respond to all messages within
-							24 hours, although it may take me longer during busy
-							periods. Alternatively, you can use the contact form
-							on my website to get in touch. Simply fill out the
-							required fields and I'll get back to you as soon as
-							possible. Finally, if you prefer to connect on
-							social media, you can find me on{" "}
+							<a
+								href={INFO.socials.github}
+								target="_blank"
+								rel="noreferrer"
+							>
+								<FontAwesomeIcon
+									icon={faGithub}
+									className="homepage-social-icon"
+								/>
+							</a>
+							<a
+								href={INFO.socials.stackoverflow}
+								target="_blank"
+								rel="noreferrer"
+							>
+								<FontAwesomeIcon
+									icon={faStackOverflow}
+									className="homepage-social-icon"
+								/>
+							</a>
 							<a
 								href={INFO.socials.instagram}
 								target="_blank"
 								rel="noreferrer"
 							>
-								{INFO.socials.instagram}
+								<FontAwesomeIcon
+									icon={faInstagram}
+									className="homepage-social-icon"
+								/>
 							</a>
-							. I post regular updates and engage with my
-							followers there, so don't hesitate to reach out.
-							Thanks again for your interest, and I look forward
-							to hearing from you!
+							<a
+								href={`mailto:${INFO.main.email}`}
+								target="_blank"
+								rel="noreferrer"
+							>
+								<FontAwesomeIcon
+									icon={faMailBulk}
+									className="homepage-social-icon"
+								/>
+							</a>
 						</div>
-					</div>
 
-					<div className="socials-container">
-						<div className="contact-socials">
-							<Socials />
 						</div>
 					</div>
 

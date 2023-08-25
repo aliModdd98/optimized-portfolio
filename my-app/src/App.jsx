@@ -22,8 +22,9 @@ function App() {
      {loading ? (
         <Loader />
       ) : (
-        <Routes>
-          <Route exact path="/" element={<Homepage />} />
+       
+ <Routes >
+          <Route  path="/" element={<Homepage />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/articles" element={<Articles />} />
@@ -31,6 +32,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Notfound />} />
         </Routes>
+       
+       
       )}
     </div>
   );

@@ -17,7 +17,7 @@ import NavBar from "../components/common/navBar";
 import Article from "../components/homepage/article";
 import Works from "../components/homepage/works";
 import AllProjects from "../components/projects/allProjects";
-
+import { motion } from "framer-motion";
 import INFO from "../data/user";
 import SEO from "../data/seo";
 import myArticles from "../data/articles";
@@ -33,7 +33,8 @@ const Homepage = () => {
   const { logoSize, stayLogo: scrollStayLogo } = useScrollEffect();
 
 	const currentSEO = SEO.find((item) => item.page === "home");
-
+ const Job="I 'm a Front-end Developer and PhotoGrapher .";
+ 
 	const logoStyle = {
 		display: "flex",
 		position: stayLogo ? "fixed" : "relative",
@@ -64,31 +65,42 @@ const Homepage = () => {
 						</div>
 					</div>
 				  <Fade left>
+			
 				  <div className="homepage-container">
 						<div className="homepage-first-area">
-							<div className="homepage-first-area-left-side">
-								<div className="title homepage-title">
-									{INFO.homepage.title}
-								</div>
+							
+							
+							
+						<header id="welcome-section">
+      <div className="forest" />
+      <div className="silhouette" />
+      <div className="moon" />
+      <div className="container">
+        <h2>
+		<motion.h1 className='name'>
+      {Job.split("").map((letter, index) => (
+        <motion.span
+          key={index}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2, delay: index * 0.1 }}
+        >
+          {letter}
+        </motion.span>
+      ))}
+    </motion.h1>
+        </h2>
 
-								<div className="subtitle homepage-subtitle">
-									{INFO.homepage.description}
-								</div>
-							</div>
-							
-							<div className="homepage-first-area-right-side">
-								<div className="homepage-image-container">
-									<div className="homepage-image-wrapper">
-										<img
-											src={home}
-											alt="about"
-											className="homepage-image"
-										/>
-									</div>
-								</div>
-							</div>
+        
+     
+      </div>
+    </header>
 							
 							
+
+
+
+
 						</div>
 
 						<div className="homepage-socials">
@@ -174,7 +186,10 @@ const Homepage = () => {
 						<div className="page-footer">
 							<Footer />
 						</div>
-					</div></Fade>   
+					</div>
+					
+					
+					</Fade>   
 					
 					
 				</div>
