@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ReactGA from "react-ga4";
 
-import Homepage from "./pages/homepage";
-import About from "./pages/about";
-import Projects from "./pages/projects";
-import Articles from "./pages/articles";
-import ReadArticle from "./pages/readArticle";
-import Contact from "./pages/contact";
-import Notfound from "./pages/404";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+
+import Homepage from "./pages/homepage.jsx";
+import About from "./pages/about.jsx";
+import Projects from "./pages/projects.jsx";
+import Articles from "./pages/articles.jsx";
+import ReadArticle from "./pages/readArticle.jsx";
+import Contact from "./pages/contact.jsx";
+import Notfound from "./pages/404.jsx";
 import useLoader from './Hooks/useLoader.jsx'
 import "./App.css";
 import Loader from './components/loader/loader.jsx'
@@ -22,8 +22,8 @@ function App() {
      {loading ? (
         <Loader />
       ) : (
-       
- <Routes >
+        <BrowserRouter basename="/optimized-portfolio">
+         <Routes >
           <Route  path="/" element={<Homepage />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
@@ -32,6 +32,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Notfound />} />
         </Routes>
+        </BrowserRouter>    
+
        
        
       )}

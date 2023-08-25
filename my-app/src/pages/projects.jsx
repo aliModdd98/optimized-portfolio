@@ -5,7 +5,7 @@ import NavBar from "../components/common/navBar";
 import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
 import AllProjects from "../components/projects/allProjects";
-import Bounce from 'react-reveal/Bounce';
+
 import INFO from "../data/user";
 import SEO from "../data/seo";
 
@@ -27,7 +27,7 @@ useScrollToTop();
 					content={currentSEO.keywords.join(", ")}
 				/>
 			</Helmet>
-			<Bounce right>
+		
 			<div className="page-content">
 				<NavBar active="projects" />
 				<div className="content-wrapper">
@@ -64,7 +64,7 @@ useScrollToTop();
 					</div>
 				</div>
 			</div>
-			</Bounce>
+		
 			
 		</React.Fragment>
 	);

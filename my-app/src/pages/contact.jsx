@@ -12,7 +12,7 @@ import NavBar from "../components/common/navBar";
 import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
 import Socials from "../components/about/socials";
-import Flip from 'react-reveal/Flip';
+
 import INFO from "../data/user";
 import SEO from "../data/seo";
 
@@ -34,7 +34,7 @@ useScrollToTop();
 					content={currentSEO.keywords.join(", ")}
 				/>
 			</Helmet>
-			<Flip bottom><div className="page-content">
+			<div className="page-content">
 				<NavBar active="contact" />
 				<div className="content-wrapper">
 					<div className="contact-logo-container">
@@ -135,10 +135,15 @@ useScrollToTop();
 						<Footer />
 					</div>
 				</div>
-			</div></Flip>
+			</div>
 			
 		</React.Fragment>
 	);
 };
 
 export default Contact;
+
+
+
+
+

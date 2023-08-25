@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
-import Roll from 'react-reveal/Roll';
+
 import NavBar from "../components/common/navBar";
 import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
@@ -28,7 +28,7 @@ useScrollToTop();
 					content={currentSEO.keywords.join(", ")}
 				/>
 			</Helmet>
-			<Roll top> 
+		
 			<div className="page-content">
 				<NavBar active="articles" />
 				<div className="content-wrapper">
@@ -70,7 +70,7 @@ useScrollToTop();
 						<Footer />
 					</div>
 				</div>
-			</div></Roll>
+			</div>
 			
 		</React.Fragment>
 	);

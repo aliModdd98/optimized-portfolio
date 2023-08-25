@@ -9,11 +9,10 @@ import Logo from "../components/common/logo";
 import INFO from "../data/user";
 
 import "./styles/404.css";
+import useScrollToTop from "../Hooks/useScrollToTop";
 
 const Notfound = () => {
-	useEffect(() => {
-		document.title = `404 | ${INFO.main.title}`;
-	}, []);
+	useScrollToTop();
 
 	return (
 		<React.Fragment>

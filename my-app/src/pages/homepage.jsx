@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import Fade from 'react-reveal/Fade';
+
 
 import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -64,7 +64,7 @@ const Homepage = () => {
 							<Logo width={logoSize} link={false} />
 						</div>
 					</div>
-				  <Fade left>
+				
 			
 				  <div className="homepage-container">
 						<div className="homepage-first-area">
@@ -76,7 +76,7 @@ const Homepage = () => {
       <div className="silhouette" />
       <div className="moon" />
       <div className="container">
-        <h2>
+      
 		<motion.h1 className='name'>
       {Job.split("").map((letter, index) => (
         <motion.span
@@ -89,7 +89,7 @@ const Homepage = () => {
         </motion.span>
       ))}
     </motion.h1>
-        </h2>
+      
 
         
      
@@ -189,8 +189,7 @@ const Homepage = () => {
 					</div>
 					
 					
-					</Fade>   
-					
+				
 					
 				</div>
 			</div>
