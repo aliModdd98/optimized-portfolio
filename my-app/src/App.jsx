@@ -22,7 +22,7 @@ function App() {
      {loading ? (
         <Loader />
       ) : (
-        <BrowserRouter basename="/optimized-portfolio">
+       
          <Routes >
           <Route  path="/" element={<Homepage />} />
           <Route path="/about" element={<About />} />
@@ -32,7 +32,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Notfound />} />
         </Routes>
-        </BrowserRouter>    
+            
 
        
        
